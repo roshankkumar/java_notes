@@ -1,0 +1,19 @@
+1. Singleton class - can we call a copy constructor or an assignment operator
+2. 10 boxes contain mini boxes weighing 20kg each. 1 box contains mini boxes weighing 19kg. Find this box.
+3. Write your own string class.
+4. Can a constructor throw an exception
+5. Can a destructor throw an exception
+6. How would you know if a core file belongs to your exe
+7. Reverse a string without using while or for loop
+8. How are callbacks invoked
+9. What is the entry point for a shared object or a DLL
+10. Find if a number(not a string) is a palindrome or not.
+11. Write the abs function for integer
+12. How negative numbers are represented in memory(2s compliment)
+13. Find out if a tree is symmetric( mirror image with root node as the axis)  
+
+How do you update an array of 'n' elements with one operation ( order of 1 )
+Note: Looping array is not a solution as you need to update all the values in single operation
+
+Write the structure of System.out.println  
+

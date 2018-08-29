@@ -1,0 +1,7 @@
+sqlloader ctl file, log file,
+types of tables, partition of 
+global temp table
+proc and funct
+index
+
+

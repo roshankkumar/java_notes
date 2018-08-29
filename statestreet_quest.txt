@@ -1,0 +1,28 @@
+What is immutable - String
+
+Example with Student class
+
+Hashmap sort by value
+
+Even or odd without %,/ operator
+
+
+
+pl/sql:- 
+
+Types of cursors
+
+PLS_INTEGER and INT
+
+Types of collections
+
+Bulk collect- save exception
+
+Difference between function and procedure
+
+wrap option to encrypt source code
+
+
+
+
+

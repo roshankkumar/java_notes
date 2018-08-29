@@ -1,0 +1,74 @@
+singleton:
+
+All approaches use private constructors to prevent object intializtion of class.
+
+one instance in the jvm. Different approaches followed to implement singleton
+
+1) Eager Initialization:
+
+Use private constructor and initiate static final object and return it using a public getMethod()
+
+disadv: no exception handling
+
+2) Static block:
+
+similar to eager , instance intialization in static block with exception handling:
+
+static{
+        try{
+            instance = new StaticBlockSingleton();
+        }catch(Exception e){
+            throw new RuntimeException("Exception occured in creating singleton instance");
+        }
+    }
+disadv: Above methods create objects when class is loaded and even before it used.
+
+3)  
+Lazy intialization:
+
+private static LazyInitializedSingleton instance;
+    
+    private LazyInitializedSingleton(){}
+    
+    public static LazyInitializedSingleton getInstance(){
+        if(instance == null){
+            instance = new LazyInitializedSingleton();
+        }
+        return instance;
+    }
+
+disadv: works for single thread but not multithread if two or more threads inside if block and access instance, each can get a copy of it.
+4) Thread Safe Singleton
+
+The easier way to create a thread-safe singleton class is to make the global access method synchronized, so that only one thread can execute this method at a time. General implementation of this approach is like the below class. 
+
+
+Use reflection to access private constructor which is restricted for non intiation of classes
+
+
+package com.journaldev.singleton;
+
+import java.lang.reflect.Constructor;
+
+public class ReflectionSingletonTest {
+
+    public static void main(String[] args) {
+        EagerInitializedSingleton instanceOne = EagerInitializedSingleton.getInstance();
+        EagerInitializedSingleton instanceTwo = null;
+        try {
+            Constructor[] constructors = EagerInitializedSingleton.class.getDeclaredConstructors();
+            for (Constructor constructor : constructors) {
+                //Below code will destroy the singleton pattern
+                constructor.setAccessible(true);
+                instanceTwo = (EagerInitializedSingleton) constructor.newInstance();
+                break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println(instanceOne.hashCode());
+        System.out.println(instanceTwo.hashCode());
+    }
+
+}
+

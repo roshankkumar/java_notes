@@ -1,0 +1,32 @@
+class loader
+1) boot loader - core class
+2) extension loader - ext,lib,jre folders
+etc
+3) system - in classs path , war, ear files 
+
+order : 3->2->1
+
+
+String - Thread safe ,immutable, String pool
+
+StringBuilder - Not Thread Safe , mutable , for loop in non multi threading
+
+StringBuffer - ThreadSafe , mutable , for loop in multi threading
+
+
+maps - Key, value pair
+
+1) TreeMap if you want to keep the value sorted with key
+2) LinkedHashMap - insertion order is maintained.
+3) HashMap - No order and sort is needed. Allows one null key value
+
+Set - No duplicates
+
+1) TreeSet - If value order to be maintained
+2) HashSet - No sort or insertion order
+3) LinkedHashSet - insertion order is maintained.
+
+List - 
+1) Duplicates allowed
+2) 
+

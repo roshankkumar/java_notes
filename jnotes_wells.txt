@@ -1,0 +1,37 @@
+Q) class definition and class not found expception 
+
+ClassNotFoundException:
+----------------------
+- It is an exception. It is of type java.lang.Exception.
+- It occurs when an application tries to load a class at run time which is not updated in the classpath.
+- It is thrown by the application itself. It is thrown by the methods like Class.forName(), loadClass() and findSystemClass().
+- It occurs when classpath is not updated with required JAR files.
+
+NoClassDefFoundError:
+---------------------
+- It is an error. It is of type java.lang.Error.
+- It occurs when java runtime system doesn’t find a class definition, which is present at compile time, but missing at run time.
+- It is thrown by the Java Runtime System.
+- It occurs when required class definition is missing at runtime.
+
+
+Q) Iterator and enumaration:
+----------------------------
+
+- Iterator is a fail-fast in nature. i.e it throws ConcurrentModificationException if a collection is modified while iterating other than it’s own remove() method. 
+- Enumeration is fail-safe in nature.
+
+
+Q) How to handle/prevent null pointer exception while developing:
+-----------------------------------------------------------------
+- Call equals() and equalsIgnoreCase() method on known String literal rather unknown object
+	"knownObject".equals(unknownObject)
+	
+- Prefer valueOf() over toString() where both return same result
+- Using null safe methods and libraries
+		StringUtils from Apache commons. You can use StringUtils.isBlank(), isNumeric(), isWhiteSpace() and other utility methods without worrying of  NullPointerException
+- Avoid returning null from method, instead return empty collection or empty array.
+			List result = Collections.EMPTY_LIST;
+			Collections.EMPTY_LIST, Collections.EMPTY_SET and Collections.EMPTY_MAP 
+			
+			

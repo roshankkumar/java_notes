@@ -1,0 +1,61 @@
+package com.map.demo;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class SortByValueMap {
+	
+	public static void main(String args[]) {
+		Map<String, String> unsortMap = new HashMap<>();
+	    unsortMap.put("1", "0");
+	    unsortMap.put("10", "-1");
+	    unsortMap.put("12", "20");
+	    unsortMap.put("4", "3");
+	    System.out.println("Map output:");
+	    System.out.println("before sort: "+unsortMap);
+	    Map<String, String> sortedMap = sortByValue(unsortMap);
+	    System.out.println("After sort"+ sortedMap);
+	    
+	}
+
+	private static Map<String, String> sortByValue(Map<String, String> unsortMap) {
+		Map<String, String> resultMap = new LinkedHashMap<>();
+		List<Entry<String, String>> entList = new ArrayList<>( unsortMap.entrySet());
+		
+		Collections.sort(entList, new Comparator<Entry<String, String>>() {
+
+			@Override
+			public int compare(Entry<String, String> o1, Entry<String, String> o2) {
+				return Integer.compare(Integer.parseInt(o1.getValue()), Integer.parseInt(o2.getValue()));
+			}
+				
+		});
+		
+		for (Entry<String, String> entry : entList) {
+			resultMap.put(entry.getKey(), entry.getValue());
+		}
+		
+		return resultMap;
+	}
+
+// Generic Method
+private static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
+        List<Entry<K, V>> list = new ArrayList<>(map.entrySet());
+        list.sort((o1, o2) -> o1.getValue().compareTo(o2.getValue()));
+
+        Map<K, V> result = new LinkedHashMap<>();
+        for (Entry<K, V> entry : list) {
+            result.put(entry.getKey(), entry.getValue());
+        }
+
+        return result;
+    }
+
+}

@@ -1,0 +1,19 @@
+1) String s = "Raj"
+String s1 = new String ("Raj");
+s1 == s will fail, how to make it true
+Intern method in String
+
+2) Fail fast and fail safe
+
+3) LinkedList or ArrayList which is better for CRUD for a million records from DB
+
+4) Singleton Class
+
+5) Executor service ?
+
+6) how to create a thread pool
+
+7) Features of Java 8
+
+
+ 

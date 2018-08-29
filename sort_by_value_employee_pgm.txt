@@ -1,0 +1,86 @@
+package com.msi.multithread;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class App {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Employee e1 = new Employee("Roshan",1);
+		Employee e2 = new Employee("Subiksha",12);
+		Employee e3 = new Employee("Kumar",9);
+		Employee e4 = new Employee("Tharun",22);
+		Employee e5 = new Employee("Abiram",32);
+		
+		Map<Integer,Employee> empMap = new HashMap<Integer,Employee>();
+		
+		empMap.put(1, e1);
+		empMap.put(2, e2);
+		empMap.put(3, e3);
+		empMap.put(4, e4);
+		empMap.put(5, e5);
+		System.out.println("Before Sort:");
+		System.out.println(empMap);
+		
+		//Set<Entry<Integer,Employee>> setMap = empMap.entrySet();
+		
+		List<Entry<Integer,Employee>> listSort = new ArrayList<Entry<Integer,Employee>>(empMap.entrySet());
+		listSort.sort(new Comparator<Entry<Integer,Employee>>() {
+
+			@Override
+			public int compare(Entry<Integer, Employee> o1,
+					Entry<Integer, Employee> o2) {
+				// TODO Auto-generated method stub
+				return o1.getValue().getEmpName().compareTo(o2.getValue().getEmpName());
+			}
+			
+		});
+		
+		Map<Integer,Employee> sortedMap = new LinkedHashMap<Integer, Employee>();
+		for (Entry<Integer, Employee> entry : listSort) {
+			sortedMap.put(entry.getKey(), entry.getValue());
+		}
+		
+		System.out.println("After Sort:");
+		System.out.println(sortedMap);
+		
+	}
+}
+
+class Employee{
+	private String empName;
+	private int empNo;
+	
+	
+	public Employee(String empName, int empNo) {
+		super();
+		this.empName = empName;
+		this.empNo = empNo;
+	}
+	public String getEmpName() {
+		return empName;
+	}
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+	public int getEmpNo() {
+		return empNo;
+	}
+	public void setEmpNo(int empNo) {
+		this.empNo = empNo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Employee [empName=" + empName + ", empNo=" + empNo + "]";
+	}
+	
+	
+	
+}
