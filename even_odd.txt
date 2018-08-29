@@ -1,4 +1,0 @@
-if((y&1)==0)System.out.println("Even");
-		else System.out.println("Odd");
-
-(number/2)*2 == number

@@ -1,5 +1,0 @@
-Java EE uses the parallel worker model. Vert.x on the other hand, uses the assembly line model with channels.
-
-
-
-
